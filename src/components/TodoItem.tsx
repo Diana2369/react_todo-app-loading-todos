@@ -6,10 +6,7 @@ type Props = {
 };
 
 export const TodoItem: React.FC<Props> = ({ todo }) => (
-  <div
-    data-cy="Todo"
-    className={`todo ${todo.completed ? 'completed' : ''}`}
-  >
+  <div data-cy="Todo" className={`todo ${todo.completed ? 'completed' : ''}`}>
     <label className="todo__status-label">
       <input
         data-cy="TodoStatus"

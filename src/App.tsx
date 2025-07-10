@@ -13,7 +13,9 @@ export const App: React.FC = () => {
   const [filter, setFilter] = useState('all');
 
   useEffect(() => {
-    if (!USER_ID) return;
+    if (!USER_ID) {
+      return;
+    }
 
     setIsLoading(true);
     setError('');
@@ -25,16 +27,23 @@ export const App: React.FC = () => {
   }, []);
 
   useEffect(() => {
-    if (!error) return;
+    if (!error) {
+      return;
+    }
+
     const timer = setTimeout(() => setError(''), 3000);
+
     return () => clearTimeout(timer);
   }, [error]);
 
   const filteredTodos = todos.filter(todo => {
     switch (filter) {
-      case 'active': return !todo.completed;
-      case 'completed': return todo.completed;
-      default: return true;
+      case 'active':
+        return !todo.completed;
+      case 'completed':
+        return todo.completed;
+      default:
+        return true;
     }
   });
 
